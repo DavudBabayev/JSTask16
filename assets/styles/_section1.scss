@@ -1,0 +1,15 @@
+.section1{
+    background-image: url('https://preview.colorlib.com/theme/drimo/drimo/img/banner/server-banner.jpg.webp');
+    padding-top: 100px;
+    .sec11{
+        margin: 60px auto;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 60% 75%, 55% 110%, 50% 75%, 0% 75%);
+        width: 40%;
+        height: 70px;
+        background-color: orangered;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        color: white;
+    }
+}

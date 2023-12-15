@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  margin: auto;
+  padding: 0 32px;
+  max-width: 1200px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: white;
+}
+nav .navcon {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .navcon i {
+  display: none;
+  font-size: 24px;
+}
+nav .navcon ul {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+nav .navcon ul a {
+  color: black;
+  transition: 0.2s ease;
+}
+nav .navcon ul a:hover {
+  color: #7db9e8;
+}
+
+.nav-menu {
+  width: 100%;
+  position: fixed;
+  top: -500px;
+  z-index: 99;
+  left: 0;
+  transition: all 1s ease;
+}
+.nav-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.nav-menu ul a {
+  font-size: 14px;
+  color: black;
+  transition: all 0.2s ease;
+}
+.nav-menu ul a:hover {
+  color: #7db9e8;
+}
+
+@media screen and (max-width: 992px) {
+  nav .navcon ul {
+    display: none;
+  }
+  nav .navcon i {
+    display: block;
+  }
+}
+.section1 {
+  background-image: url("https://preview.colorlib.com/theme/drimo/drimo/img/banner/server-banner.jpg.webp");
+  padding-top: 100px;
+}
+.section1 .sec11 {
+  margin: 60px auto;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 60% 75%, 55% 110%, 50% 75%, 0% 75%);
+          clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 60% 75%, 55% 110%, 50% 75%, 0% 75%);
+  width: 40%;
+  height: 70px;
+  background-color: orangered;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  color: white;
+}/*# sourceMappingURL=main.css.map */
