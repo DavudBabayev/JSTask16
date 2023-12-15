@@ -1,0 +1,89 @@
+.section2 {
+    width: 100%;
+    padding: 100px 0;
+
+    .sec2con {
+        width: 100%;
+
+        .top {
+            width: 50%;
+            margin: auto;
+            text-align: center;
+            margin-bottom: 100px;
+
+            h2 {
+                font-weight: 300;
+                position: relative;
+                font-size: 35px;
+                margin-bottom: 40px;
+                padding: 20px;
+
+                &::before {
+                    content: "";
+                    width: 60px;
+                    height: 2px;
+                    background: #424242;
+                    position: absolute;
+                    left: 50%;
+                    bottom: 0px;
+                    transform: translateX(-50%);
+                }
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 25px;
+            }
+        }
+
+        .card {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+
+            div {
+                flex: 1 1 calc(25% - 20px);
+                max-width: calc(25% - 10px);
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) and (min-width: 480px) {
+    .section2 {
+        .sec2con {
+            .top {
+                width: 100%;
+            }
+
+            .card {
+                div {
+                    flex: 1 1 calc(50% - 20px);
+                    max-width: calc(50% - 10px);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .section2 {
+        .sec2con {
+            .card {
+                div {
+                    flex: 1 1 calc(100% - 20px);
+                    max-width: calc(100% - 10px);
+                }
+            }
+        }
+    }
+}

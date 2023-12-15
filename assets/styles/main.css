@@ -8,7 +8,7 @@
 .container {
   margin: auto;
   padding: 0 32px;
-  max-width: 1200px;
+  max-width: 1300px;
 }
 
 ul {
@@ -84,17 +84,156 @@ nav .navcon ul a:hover {
 }
 .section1 {
   background-image: url("https://preview.colorlib.com/theme/drimo/drimo/img/banner/server-banner.jpg.webp");
-  padding-top: 100px;
+  padding: 200px 0;
 }
 .section1 .sec11 {
   margin: 60px auto;
-  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 60% 75%, 55% 110%, 50% 75%, 0% 75%);
-          clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 60% 75%, 55% 110%, 50% 75%, 0% 75%);
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 60% 75%, 55% 100%, 50% 75%, 0% 75%);
+          clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 60% 75%, 55% 100%, 50% 75%, 0% 75%);
   width: 40%;
-  height: 70px;
-  background-color: orangered;
-  padding: 10px;
+  height: 100px;
+  background-color: #fc6428;
+  padding: 20px 0;
   display: flex;
   justify-content: center;
   color: white;
+}
+.section1 .sec12 {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.section1 .sec12 .text {
+  width: 60%;
+}
+.section1 .sec12 .text h1,
+.section1 .sec12 .text h2,
+.section1 .sec12 .text h4,
+.section1 .sec12 .text p {
+  font-weight: 400;
+  margin-bottom: 30px;
+  color: white;
+}
+.section1 .sec12 .text h1 {
+  font-size: 45px;
+}
+.section1 .sec12 .text h2 {
+  font-size: 40px;
+}
+.section1 .sec12 .text h4 {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 75px;
+  gap: 10px;
+}
+.section1 .sec12 .text h4 a {
+  width: calc(50% - 10px);
+  color: white;
+}
+.section1 .sec12 .text .a {
+  color: white;
+  background-color: #fc6428;
+  padding: 15px;
+  transition: 0.5s ease;
+}
+.section1 .sec12 .text .a:hover {
+  background-color: #e64100;
+}
+.section1 .sec12 .img {
+  width: 40%;
+  margin-top: -50px;
+}
+.section1 .sec12 .img img {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 992px) and (min-width: 480px) {
+  .section1 .sec12 {
+    flex-direction: column;
+  }
+  .section1 .sec12 .text, .section1 .sec12 .img {
+    width: 100%;
+    margin: 0;
+  }
+  .section1 .sec12 .text h4, .section1 .sec12 .img h4 {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .section1 .sec12 .text h4 {
+    width: 100%;
+  }
+  .section1 .sec12 .text h4 a {
+    width: 100%;
+  }
+}
+.section2 {
+  width: 100%;
+  padding: 100px 0;
+}
+.section2 .sec2con {
+  width: 100%;
+}
+.section2 .sec2con .top {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 100px;
+}
+.section2 .sec2con .top h2 {
+  font-weight: 300;
+  position: relative;
+  font-size: 35px;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+.section2 .sec2con .top h2::before {
+  content: "";
+  width: 60px;
+  height: 2px;
+  background: #424242;
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  transform: translateX(-50%);
+}
+.section2 .sec2con .top p {
+  font-size: 16px;
+  line-height: 25px;
+}
+.section2 .sec2con .card {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.section2 .sec2con .card div {
+  flex: 1 1 calc(25% - 20px);
+  max-width: calc(25% - 10px);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 992px) and (min-width: 480px) {
+  .section2 .sec2con .top {
+    width: 100%;
+  }
+  .section2 .sec2con .card div {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 10px);
+  }
+}
+@media screen and (max-width: 480px) {
+  .section2 .sec2con .card div {
+    flex: 1 1 calc(100% - 20px);
+    max-width: calc(100% - 10px);
+  }
 }/*# sourceMappingURL=main.css.map */
