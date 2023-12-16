@@ -1,4 +1,4 @@
-$blue: #7db9e8;
+$blue: rgb(125, 185, 232);
 
 *{
     margin: 0;
@@ -23,3 +23,6 @@ a{
 @import 'nav';
 @import 'section1';
 @import 'section2';
+@import 'section3';
+@import 'section4';
+@import 'footer';

@@ -1,8 +1,8 @@
-.section2 {
+.section4 {
     width: 100%;
     padding: 100px 0;
 
-    .sec2con {
+    .sec4con {
         width: 100%;
 
         .top {
@@ -36,27 +36,44 @@
             }
         }
 
-        .card {
+        .cards {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            justify-content: center;
-
-            div {
-                flex: 1 1 calc(25% - 20px);
-                max-width: calc(25% - 10px);
+            .card {
+                flex: 1 1 calc(33% - 20px);
+                max-width: calc(33% - 10px);
                 display: flex;
                 flex-direction: column;
-                text-align: center;
-                gap: 10px;
                 justify-content: center;
                 align-items: center;
-                margin-bottom: 20px;
-                img{
-                    width: 25%;
-                    height: auto;
-                    border-radius: 9999999px;
+                border: 1px solid gray;
+                gap: 40px;
+                .img{
+                    width: 100%;
+                    overflow: hidden;
+                    img{
+                        transition: all 0.5s ease;
+                        width: 100%;
+                        height: auto;
+                    }
+                    &:hover img{
+                        transform: scale(1.05);
+                    }
+                }
+                .text{
+                    width: 100%;
+                    min-height: 150px;
+                    padding: 10px;
+                    a{
+                        color: black;
+                        font-size: 24px;
+                    }
+                    p{
+                        font-size: 18px;
+                        margin-top: 30px;
+                    }
                 }
             }
         }
@@ -64,14 +81,14 @@
 }
 
 @media screen and (max-width: 992px) and (min-width: 480px) {
-    .section2 {
-        .sec2con {
+    .section4 {
+        .sec4con {
             .top {
                 width: 100%;
             }
 
-            .card {
-                div {
+            .cards {
+                .card {
                     flex: 1 1 calc(50% - 20px);
                     max-width: calc(50% - 10px);
                 }
@@ -81,13 +98,13 @@
 }
 
 @media screen and (max-width: 480px) {
-    .section2 {
-        .sec2con {
+    .section4 {
+        .sec4con {
             .top{
                 width: 100%;
             }
-            .card {
-                div {
+            .cards {
+                .card {
                     flex: 1 1 calc(100% - 20px);
                     max-width: calc(100% - 10px);
                 }
