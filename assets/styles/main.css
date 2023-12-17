@@ -26,6 +26,7 @@ nav {
   left: 0;
   z-index: 100;
   background-color: white;
+  transition: all 0.5s ease;
 }
 nav .navcon {
   width: 100%;
@@ -177,12 +178,14 @@ nav .navcon ul a:hover {
 }
 .section2 .sec2con {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .section2 .sec2con .top {
   width: 50%;
   margin: auto;
   text-align: center;
-  margin-bottom: 100px;
 }
 .section2 .sec2con .top h2 {
   font-weight: 300;
@@ -205,6 +208,12 @@ nav .navcon ul a:hover {
   font-size: 16px;
   line-height: 25px;
 }
+.section2 .sec2con #search {
+  margin: 75px 0;
+  width: 200px;
+  height: 30px;
+  padding: 5px;
+}
 .section2 .sec2con .card {
   width: 100%;
   display: flex;
@@ -222,11 +231,60 @@ nav .navcon ul a:hover {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  position: relative;
+}
+.section2 .sec2con .card div .bi-heart, .section2 .sec2con .card div .bi-heart-fill {
+  position: absolute;
+  z-index: 10;
+  color: red;
+  top: 10px;
+  right: 20px;
 }
 .section2 .sec2con .card div img {
   width: 25%;
   height: auto;
   border-radius: 9999999px;
+}
+.section2 .sec2con .card div span {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+.section2 .sec2con .card div span .delete, .section2 .sec2con .card div span .update {
+  width: 28%;
+  height: 25px;
+  border: none;
+  color: white;
+}
+.section2 .sec2con .card div span .details {
+  width: 28%;
+  height: 25px;
+}
+.section2 .sec2con .card div span .details button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: blue;
+  color: white;
+}
+.section2 .sec2con .card div span .delete {
+  background-color: red;
+}
+.section2 .sec2con .card div span .update {
+  background-color: green;
+}
+.section2 .sec2con .load {
+  width: 200px;
+  height: 50px;
+  margin: 50px 0 0 0;
+  border: none;
+  background-color: rgb(125, 185, 232);
+  color: white;
+  cursor: grab;
+}
+.section2 .sec2con .load:active {
+  background-color: red;
+  cursor: grabbing;
 }
 
 @media screen and (max-width: 992px) and (min-width: 480px) {
@@ -453,4 +511,110 @@ footer .footcon a {
 }
 footer .footcon a:hover {
   color: rgb(0, 0, 175);
+}
+
+.updatediv {
+  display: none;
+  flex-direction: column;
+  top: calc(60% - 240px);
+  left: calc(50% - 190px);
+  position: fixed;
+  z-index: 1000;
+  width: 380px;
+  height: 330px;
+}
+
+form {
+  background-color: rgb(125, 185, 232);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  border-radius: 20px;
+}
+
+form p {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+input {
+  outline: none;
+}
+
+.img2 {
+  width: 60px;
+  height: 60px;
+  border-radius: 99999999px;
+  border: 1px dashed black;
+}
+
+.img2 img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 9999999px;
+}
+
+#submit {
+  background-color: #fc5a1a;
+  padding: 6px 6px;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 12px;
+}
+
+#add {
+  width: 50px;
+  height: 50px;
+  border-radius: 99999999px;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  background-color: rgb(125, 185, 232);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 34px;
+  transition: all 0.5s ease;
+}
+#add:hover {
+  width: 100px;
+  border-radius: 50px;
+}
+#add:hover::after {
+  content: "Add";
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+#fav {
+  width: 50px;
+  height: 50px;
+  border-radius: 99999999px;
+  position: fixed;
+  right: 40px;
+  bottom: 100px;
+  background-color: rgb(125, 185, 232);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 34px;
+  transition: all 0.5s ease;
+}
+#fav:hover {
+  width: 150px;
+  border-radius: 50px;
+}
+#fav:hover::after {
+  content: "Favorites";
+  font-size: 16px;
+  margin-left: 10px;
 }/*# sourceMappingURL=main.css.map */

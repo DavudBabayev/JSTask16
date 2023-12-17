@@ -1,35 +1,4 @@
-let url = 'http://localhost:3000/doc/';
-
-//////////// NAv MENU //////////
-
-
-const navMenu = document.querySelector(".nav-menu");
-const nav = document.querySelector("nav");
-
-document.querySelector("#menu").addEventListener("click", () => {
-    if (navMenu.style.top === "100px") {
-        navMenu.style.top = "-500px";
-    } else {
-        navMenu.style.top = "100px";
-    }
-});
-
-window.addEventListener("resize", () => {
-    if (window.innerWidth > 992) {
-        navMenu.style.top = "-500px";
-    }
-});
-
-window.onscroll = () => {
-    if (window.scrollY > 100) {
-        nav.style.background = " #f8f8f8";
-        nav.style.padding = "10px 0";
-    }
-    else {
-        nav.style.padding = "5px 0";
-    }
-}
-
+let favurl = 'http://localhost:3000/favs/';
 
 //////////DATA//////////
 
@@ -42,32 +11,40 @@ const load = document.querySelector(".load");
 
 async function getALLCards() {
 
-    network.getAll().then(data => {
-        copyArr = data;
+    let res = await axios(favurl);
 
-        card.innerHTML = ""
+    let data = await res.data;
 
-        filteredArr = filteredArr.length || searchInp.value ? filteredArr : data;
+    copyArr = data;
+    card.innerHTML = ""
 
-        filteredArr.slice(0, ml).forEach(element => {
-            card.innerHTML += `
+    filteredArr = filteredArr.length || searchInp.value ? filteredArr : data;
+
+    filteredArr.slice(0, ml).forEach(element => {
+        card.innerHTML += `
         <div>
         <img src="${element.image}" alt="">
         <h3>${element.name}</h3>
         <p>${element.text}</p>
         <span>
         <a href="./details.html?id=${element.id}" class="details"><button>Details</button></a>
-        <button class="delete" onclick="network.delete(${element.id})">Delete</button>
+        <button class="delete" onclick="deleteCard(${element.id})">Delete</button>
         <button class="update" onclick="updateCard(${element.id})">Update</button>
         </span>
-        <i onclick="addFavorite(${element.id})" class="bi bi-heart"></i>
     </div>
         `
-        });
     });
 };
 
 getALLCards();
+
+
+//delete//
+
+function deleteCard(id) {
+    axios.delete(favurl + id);
+    window.location.reload()
+}
 
 //load//
 
@@ -141,37 +118,4 @@ function updateCard(id) {
         }
         reader.readAsDataURL(src)
     })
-}
-
-//favorites//
-
-async function addFavorite(id) {
-    if (event.target.classList.contains('bi-heart')) {
-        event.target.classList.remove('bi-heart')
-        event.target.classList.add('bi-heart-fill')
-
-        axios.get(url + id)
-            .then(res => {
-                console.log(res.data);
-                return res.data
-            })
-            .then(res => {
-                axios.get(`http://localhost:3000/favs`)
-                    .then(response => {
-                        let ID = res1.data.find(find => find.id === res1.id);
-                        if (!ID) {
-                            axios.post(`http://localhost:3000/favs`, res)
-                        }
-                        else {
-                            axios.delete(`http://localhost:3000/favs/${iD.id}`)
-                        }
-                    })
-            })
-    }
-    else {
-        event.preventDefault();
-        event.target.classList.remove('bi-heart-fill')
-        event.target.classList.add('bi-heart')
-        axios.delete(`http://localhost:3000/favs/${id}`)
-    }
 }
