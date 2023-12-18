@@ -156,7 +156,7 @@ async function addFavorite(id) {
             })
             .then(res => {
                 axios.get(`http://localhost:3000/favs`)
-                    .then(response => {
+                    .then(res1 => {
                         let ID = res1.data.find(find => find.id === res1.id);
                         if (!ID) {
                             axios.post(`http://localhost:3000/favs`, res)

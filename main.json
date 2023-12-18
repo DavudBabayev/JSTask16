@@ -97,5 +97,24 @@
       "text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered."
     }
   ],
-  "favs": []
+  "favs": [
+    {
+      "id": 6,
+      "image": "https://preview.colorlib.com/theme/drimo/drimo/img/icon/ss-icon-6.png.webp",
+      "name": "24/7 Support",
+      "text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered."
+    },
+    {
+      "id": 1,
+      "image": "https://preview.colorlib.com/theme/drimo/drimo/img/icon/ss-icon-1.png.webp",
+      "name": "Cloud Hosting",
+      "text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered."
+    },
+    {
+      "id": 2,
+      "image": "https://preview.colorlib.com/theme/drimo/drimo/img/icon/ss-icon-2.png.webp",
+      "name": "Web Hosting",
+      "text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered."
+    }
+  ]
 }
