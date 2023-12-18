@@ -42,15 +42,16 @@ const load = document.querySelector(".load");
 
 async function getALLCards() {
 
-    network.getAll().then(data => {
-        copyArr = data;
+    let res = await axios.get(url)
+    let data = await res.data;
+    copyArr = data;
 
-        card.innerHTML = ""
+    card.innerHTML = ""
 
-        filteredArr = filteredArr.length || searchInp.value ? filteredArr : data;
+    filteredArr = filteredArr.length || searchInp.value ? filteredArr : data;
 
-        filteredArr.slice(0, ml).forEach(element => {
-            card.innerHTML += `
+    filteredArr.slice(0, ml).forEach(element => {
+        card.innerHTML += `
         <div>
         <img src="${element.image}" alt="">
         <h3>${element.name}</h3>
@@ -61,9 +62,7 @@ async function getALLCards() {
         <button class="update" onclick="updateCard(${element.id})">Update</button>
         </span>
         <i onclick="addFavorite(${element.id})" class="bi bi-heart"></i>
-    </div>
-        `
-        });
+    </div>`
     });
 };
 
@@ -115,16 +114,16 @@ function updateCard(id) {
     updateDiv.style.display = "flex"
     axios.get(url + id).then(res => {
         nameInp.value = data.name,
-            textInp.value = data.text,
-            fileInp.value = data.image,
-            imageDiv.src = data.image
+        textInp.value = data.text,
+        fileInp.value = data.image,
+        imageDiv.src = data.image
     });
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         axios.get(url + id).then(res => {
             nameInp.value = data.name,
-                textInp.value = data.text,
-                imageDiv.src = data.image
+            textInp.value = data.text,
+            imageDiv.src = data.image
         });
         let src = fileInp.files[0];
         let reader = new FileReader();
@@ -163,7 +162,7 @@ async function addFavorite(id) {
                             axios.post(`http://localhost:3000/favs`, res)
                         }
                         else {
-                            axios.delete(`http://localhost:3000/favs/${iD.id}`)
+                            axios.delete(`http://localhost:3000/favs/${ID.id}`)
                         }
                     })
             })
