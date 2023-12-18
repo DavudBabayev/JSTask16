@@ -48,22 +48,22 @@ function deleteCard(id) {
 
 //load//
 
-// load.addEventListener("click", () => {
-//     ml += 4;
-//     getALLCards();
-// });
+load.addEventListener("click", () => {
+    ml += 4;
+    getALLCards();
+});
 
 //search//
 
-// searchInp.addEventListener("input", (e) => {
-//     console.log(filteredArr);
-//     filteredArr = copyArr;
-//     filteredArr = filteredArr.filter((element) =>
-//         element.name.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())
+searchInp.addEventListener("input", (e) => {
+    console.log(filteredArr);
+    filteredArr = copyArr;
+    filteredArr = filteredArr.filter((element) =>
+        element.name.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())
 
-//     )
-//     getALLCards();
-// })
+    )
+    getALLCards();
+})
 
 //update//
 
@@ -75,18 +75,18 @@ let nameInp = document.querySelector("#name");
 let updateDiv = document.querySelector(".updatediv");
 let closeBtn = document.querySelector(".bi-x");
 
-// fileInp.addEventListener("change", () => {
-//     let src = fileInp.files[0]
-//     let reader = new FileReader();
-//     reader.readAsDataURL(src);
-//     reader.onload = function (e) {
-//         imgageDiv.src = e.target.result
-//     }
-// })
+fileInp.addEventListener("change", () => {
+    let src = fileInp.files[0]
+    let reader = new FileReader();
+    reader.readAsDataURL(src);
+    reader.onload = function (e) {
+        imgageDiv.src = e.target.result
+    }
+})
 
-// closeBtn.addEventListener("click", () => {
-//     updateDiv.style.display = "none";
-// })
+closeBtn.addEventListener("click", () => {
+    updateDiv.style.display = "none";
+})
 
 function updateCard(id) {
     updateDiv.style.display = "flex"
