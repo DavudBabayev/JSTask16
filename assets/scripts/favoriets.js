@@ -1,35 +1,4 @@
-let url = 'http://localhost:3000/doc/';
-
-//////////// NAv MENU //////////
-
-
-const navMenu = document.querySelector(".nav-menu");
-const nav = document.querySelector("nav");
-
-document.querySelector("#menu").addEventListener("click", () => {
-    if (navMenu.style.top === "100px") {
-        navMenu.style.top = "-500px";
-    } else {
-        navMenu.style.top = "100px";
-    }
-});
-
-window.addEventListener("resize", () => {
-    if (window.innerWidth > 992) {
-        navMenu.style.top = "-500px";
-    }
-});
-
-window.onscroll = () => {
-    if (window.scrollY > 100) {
-        nav.style.background = " #f8f8f8";
-        nav.style.padding = "10px 0";
-    }
-    else {
-        nav.style.padding = "5px 0";
-    }
-}
-
+let favurl = 'http://localhost:3000/favs/';
 
 //////////DATA//////////
 
@@ -42,10 +11,11 @@ const load = document.querySelector(".load");
 
 async function getALLCards() {
 
-    let res = await axios.get(url)
-    let data = await res.data;
-    copyArr = data;
+    let res = await axios(favurl);
 
+    let data = await res.data;
+
+    copyArr = data;
     card.innerHTML = ""
 
     filteredArr = filteredArr.length || searchInp.value ? filteredArr : data;
@@ -58,15 +28,23 @@ async function getALLCards() {
         <p>${element.text}</p>
         <span>
         <a href="./details.html?id=${element.id}" class="details"><button>Details</button></a>
-        <button class="delete" onclick="network.delete(${element.id})">Delete</button>
+        <button class="delete" onclick="deleteCard(${element.id})">Delete</button>
         <button class="update" onclick="updateCard(${element.id})">Update</button>
         </span>
-        <i onclick="addFavorite(${element.id})" class="bi bi-heart"></i>
-    </div>`
+    </div>
+        `
     });
 };
 
 getALLCards();
+
+
+//delete//
+
+function deleteCard(id) {
+    axios.delete(favurl + id);
+    window.location.reload()
+}
 
 //load//
 
@@ -111,19 +89,19 @@ closeBtn.addEventListener("click", () => {
 })
 
 function updateCard(id) {
-    updateDiv.style.display = "block"
+    updateDiv.style.display = "flex"
     axios.get(url + id).then(res => {
-        nameInp.value = res.data.name,
-        textInp.value = res.data.text,
-        fileInp.value = res.data.image,
-        imageDiv.src = res.data.image
+        nameInp.value = data.name,
+            textInp.value = data.text,
+            fileInp.value = data.image,
+            imageDiv.src = data.image
     });
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         axios.get(url + id).then(res => {
-            nameInp.value = res.data.name,
-            textInp.value = res.data.text,
-            imageDiv.src = res.data.image
+            nameInp.value = data.name,
+                textInp.value = data.text,
+                imageDiv.src = data.image
         });
         let src = fileInp.files[0];
         let reader = new FileReader();
@@ -140,37 +118,4 @@ function updateCard(id) {
         }
         reader.readAsDataURL(src)
     })
-}
-
-//favorites//
-
-async function addFavorite(id) {
-    if (event.target.classList.contains('bi-heart')) {
-        event.target.classList.remove('bi-heart')
-        event.target.classList.add('bi-heart-fill')
-
-        axios.get(url + id)
-            .then(res => {
-                console.log(res.data);
-                return res.data
-            })
-            .then(res => {
-                axios.get(`http://localhost:3000/favs`)
-                    .then(response => {
-                        let ID = res1.data.find(find => find.id === res1.id);
-                        if (!ID) {
-                            axios.post(`http://localhost:3000/favs`, res)
-                        }
-                        else {
-                            axios.delete(`http://localhost:3000/favs/${ID.id}`)
-                        }
-                    })
-            })
-    }
-    else {
-        event.preventDefault();
-        event.target.classList.remove('bi-heart-fill')
-        event.target.classList.add('bi-heart')
-        axios.delete(`http://localhost:3000/favs/${id}`)
-    }
 }
