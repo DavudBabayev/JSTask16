@@ -54,6 +54,7 @@ nav .navcon ul a:hover {
 
 .nav-menu {
   width: 100%;
+  background-color: white;
   position: fixed;
   top: -500px;
   z-index: 99;
